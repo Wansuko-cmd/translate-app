@@ -14,7 +14,14 @@ class MainActivity : AppCompatActivity() {
         // ↑で取ってきた内容の最上位要素を画面に表示する
         setContentView(binding.root)
 
-        // ↑のViewの中の「text_view」のidがついている要素の文字を「Kotlin」に変更する
-        binding.textView.text = "Kotlin"
+        // Buttonを押したときの挙動を定義
+        binding.button.setOnClickListener {
+
+            // 入力欄の文字列を取得
+            val newText = binding.editText.text
+
+            // 入力欄の文字列を出力欄に代入
+            binding.textView.text = newText
+        }
     }
 }
