@@ -21,3 +21,4 @@
 2. activity_main.xmlにRecyclerViewを設置
 3. model_history_row.xmlを作成
 4. Epoxyの設定ファイル(EpoxyConfig.java)を追加
+5. EpoxyControllerを追加
