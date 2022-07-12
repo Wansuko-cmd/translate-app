@@ -24,3 +24,4 @@
 5. EpoxyControllerを追加
 6. Epoxyを用いてRecyclerViewに文字を表示
 7. 変換した文字列を履歴として表示
+8. 回転すると履歴がぶっ飛ぶことを確認
