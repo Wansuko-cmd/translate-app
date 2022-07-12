@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Buttonを押したときの挙動を定義
-        binding.button.setOnClickListener {
+        binding.moukoButton.setOnClickListener {
 
             // 入力欄の文字列を取得
             val inputText = binding.editText.text
