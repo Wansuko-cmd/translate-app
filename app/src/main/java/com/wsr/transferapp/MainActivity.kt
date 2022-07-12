@@ -30,5 +30,21 @@ class MainActivity : AppCompatActivity() {
             // 変換した文字列を出力欄に代入
             binding.textView.text = translatedText
         }
+
+        // Controllerを作成
+        val mainEpoxyController = MainEpoxyController()
+
+        // RecyclerViewに設定
+        binding.recyclerView.apply {
+            // 要素のサイズが変わらないということを設定（少し早くなる）
+            setHasFixedSize(true)
+
+            // どのように表示されるのかをコントロールする「adapter」を設定
+            // 本来はこれを自力で作成するが、Epoxyを使うことで勝手にいい感じに生成される
+            adapter = mainEpoxyController.adapter
+        }
+
+        // EpoxyControllerに表示する文字列を通達
+        mainEpoxyController.setData(listOf("H", "E", "L", "L", "O"))
     }
 }

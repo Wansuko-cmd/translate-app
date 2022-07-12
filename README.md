@@ -18,7 +18,8 @@
 # 猛虎弁を変換した履歴を表示する
 
 1. Epoxyを導入
-2. activity_main.xmlにRecyclerViewを設置
+2. activity_main.xmlにRecyclerViewを設置(layoutManagerを忘れないように)
 3. model_history_row.xmlを作成
 4. Epoxyの設定ファイル(EpoxyConfig.java)を追加
 5. EpoxyControllerを追加
+6. Epoxyを用いてRecyclerViewに文字を表示

@@ -1,13 +1,14 @@
 package com.wsr.transferapp
 
 import com.airbnb.epoxy.TypedEpoxyController
+import java.util.*
 
 class MainEpoxyController : TypedEpoxyController<List<String>>() {
     override fun buildModels(data: List<String>) {
 
         data.forEach { historyText ->
             historyRow {
-                id("History")
+                id(UUID.randomUUID().toString())
                 text(historyText)
             }
         }
