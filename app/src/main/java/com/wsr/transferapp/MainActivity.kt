@@ -18,10 +18,17 @@ class MainActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
 
             // 入力欄の文字列を取得
-            val newText = binding.editText.text
+            val inputText = binding.editText.text
 
-            // 入力欄の文字列を出力欄に代入
-            binding.textView.text = newText
+            // 猛虎弁に変換
+            val translatedText = inputText.toString()
+                .replace("。", "やで。")
+                .replace("！", "やで！")
+                .replace("？", "やで？")
+                .replace("\n", "やで。")
+
+            // 変換した文字列を出力欄に代入
+            binding.textView.text = translatedText
         }
     }
 }
