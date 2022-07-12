@@ -1,12 +1,13 @@
 package com.wsr.transferapp
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.wsr.transferapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private val history = mutableListOf<String>()
+    private val viewModel by viewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         // Controllerを作成
         val mainEpoxyController = MainEpoxyController()
+        mainEpoxyController.setData(viewModel.history)
 
         // RecyclerViewに設定
         binding.recyclerView.apply {
@@ -47,10 +49,10 @@ class MainActivity : AppCompatActivity() {
             binding.textView.text = translatedText
 
             // 履歴に文字列を追加
-            history.add(translatedText)
+            viewModel.history.add(translatedText)
 
             // EpoxyControllerに表示する文字列を通達
-            mainEpoxyController.setData(history)
+            mainEpoxyController.setData(viewModel.history)
         }
     }
 }
