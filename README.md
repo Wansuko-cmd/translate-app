@@ -23,3 +23,4 @@
 4. Epoxyの設定ファイル(EpoxyConfig.java)を追加
 5. EpoxyControllerを追加
 6. Epoxyを用いてRecyclerViewに文字を表示
+7. 変換した文字列を履歴として表示
