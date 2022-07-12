@@ -5,12 +5,13 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.wsr.transferapp.databinding.ActivityMainBinding
-import io.ktor.client.*
-import io.ktor.client.call.*
-import io.ktor.client.engine.android.*
-import io.ktor.client.plugins.contentnegotiation.*
-import io.ktor.client.request.*
-import io.ktor.serialization.kotlinx.json.*
+import io.ktor.client.HttpClient
+import io.ktor.client.call.body
+import io.ktor.client.engine.android.Android
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.request.get
+import io.ktor.client.request.parameter
+import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
