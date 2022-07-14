@@ -1,6 +1,10 @@
 package com.wsr.transferapp
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -33,7 +37,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Controllerを作成
-        val mainEpoxyController = MainEpoxyController()
+        val mainEpoxyController = MainEpoxyController(
+            onClickCopyListener = {
+                val clipboardManager = applicationContext
+                    .getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                clipboardManager.setPrimaryClip(ClipData.newPlainText("text", it))
+                Toast.makeText(applicationContext, "コピーしました", Toast.LENGTH_SHORT).show()
+            }
+        )
         mainEpoxyController.setData(viewModel.history)
 
         // RecyclerViewに設定
