@@ -22,10 +22,10 @@
         tools:text="edit"/>
 
     <Button
-        android:id="@+id/mouko_button"
+        android:id="@+id/encrypt_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="猛虎弁に変換"
+        android:text="暗号・復号"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/english_button"
         app:layout_constraintTop_toBottomOf="@id/edit_text"/>
@@ -35,7 +35,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="英語に変換"
-        app:layout_constraintStart_toEndOf="@id/mouko_button"
+        app:layout_constraintStart_toEndOf="@id/encrypt_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_text"/>
 
@@ -44,7 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/mouko_button"
+        app:layout_constraintTop_toBottomOf="@id/encrypt_button"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

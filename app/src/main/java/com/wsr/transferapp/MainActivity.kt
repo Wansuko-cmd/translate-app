@@ -47,17 +47,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Buttonを押したときの挙動を定義
-        binding.moukoButton.setOnClickListener {
+        binding.encryptButton.setOnClickListener {
 
             // 入力欄の文字列を取得
             val inputText = binding.editText.text
 
-            // 猛虎弁に変換
+            // 暗号化
             val translatedText = inputText.toString()
-                .replace("。", "やで。")
-                .replace("！", "やで！")
-                .replace("？", "やで？")
-                .replace("\n", "やで。")
+                .map { it.code }
+                .map { it.xor(10) }
+                .map { it.toChar() }
+                .toCharArray()
+                .fold("") { acc, c -> acc + c }
 
             // 変換した文字列を出力欄に代入
             binding.textView.text = translatedText
