@@ -37,14 +37,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Controllerを作成
-        val mainEpoxyController = MainEpoxyController(
-            onClickCopyListener = {
-                val clipboardManager = applicationContext
-                    .getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                clipboardManager.setPrimaryClip(ClipData.newPlainText("text", it))
-                Toast.makeText(applicationContext, "コピーしました", Toast.LENGTH_SHORT).show()
-            }
-        )
+        val mainEpoxyController = MainEpoxyController()
         mainEpoxyController.setData(viewModel.history)
 
         // RecyclerViewに設定
@@ -105,6 +98,13 @@ class MainActivity : AppCompatActivity() {
                 // EpoxyControllerに表示する文字列を通達
                 mainEpoxyController.setData(viewModel.history)
             }
+        }
+
+        binding.copyButton.setOnClickListener {
+            val clipboardManager = applicationContext
+                .getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            clipboardManager.setPrimaryClip(ClipData.newPlainText("text", binding.textView.text))
+            Toast.makeText(applicationContext, "コピーしました", android.widget.Toast.LENGTH_SHORT).show()
         }
     }
 }
